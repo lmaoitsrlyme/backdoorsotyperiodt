@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>stray kids !!</title>
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <!-- sweetalert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Local StyleSheet -->
+    <link href="./style.css" rel="stylesheet" />
+
+    <!--JS Files-->
+    <script src="./js/addButtons.js"></script>
+    <script src="./js/markerhandler.js"></script>
+  </head>
+
+  <body style="margin : 0px; overflow: hidden;">
+    <a-scene
+      vr-mode-ui="enabled: false"
+      embedded
+      arjs="sourceType: webcam;
+    sourceWidth:1280; sourceHeight:960;
+    displayWidth: 1280; displayHeight: 960;
+    debugUIEnabled: false;"
+      gesture-detector
+      createbuttons
+    >
+      <!-- Camera -->
+      <a-entity camera></a-entity>
+
+      <a-assets>
+        <a-asset-item
+          id="crane-model"
+          src="./assets/mobile_crane_ii_wooden_toy/scene.gltf"
+        ></a-asset-item>
+      </a-assets>
+
+      <!--Pattern Marker-->
+      <a-marker
+        id="crane-marker"
+        type="pattern"
+        url="assets/T01/pattern-crane.patt"
+        cursor="rayOrigin: mouse"
+        markerhandler
+      >
+        <a-entity
+          id="crane-3D-model"
+          position="-2.3 0 0.5"
+          rotation="-90 0 0"
+          scale="5 5 5"
+          gltf-model="#crane-model"
+          gesture-handler
+          animation-mixer
+        >
+        </a-entity>
+
+        <!-- Description -->
+        <a-plane
+          position="0 0 0"
+          width="2.3"
+          height="2.5"
+          rotation="-90 0 0"
+          color="#ffd880"
+        >
+          <a-plane
+            position="0 1.1 0.1"
+            width="2.31"
+            height="0.4"
+            rotation="0 0 0"
+            color="#f14668"
+          >
+            <a-entity
+              position="1.3 0 0.1"
+              rotation="0 0 0"
+              text="font:aileronsemibold;value:back door by skz is soty 2020 idc what you say;color:#290149;width: 4.5;height:3;align:left;"
+            ></a-entity>
+          </a-plane>
+
+          <a-entity
+            position="0.1 0 0.1"
+            rotation="0 0 0"
+            text="color: #6b011f; align: left; width: 2;height:5;lineHeight:50;letterSpacing:2; font: dejavu;
+             value:  Intro   Felix  
+             Hey   you wanna come in    
+           
+             Verse 1   Han   Hyunjin  
+           Da chiwo ije deureoga
+           Jeobeon geon ipgasim   mm
+           Ijen bonpyeoneuro party   Oh  
+           Gamdang an doem ppajiji   Hol   up     yeah
+           Ego eogieocha cham ppeogeunhan geo
+           Da pulgo mamdaero jeulgyeo nugurado
+           Bul kkeugo nun balkyeora bamsae
+           Eongnulleotdeon heungeul kkeureomoa bangsaeng   Oh  
+           
+             Pre  Chorus   Seungmin   Bang Chan  
+           Sonjabireul dollyeo naega wonhadeon geol da bollae
+           I mun apeseo deullineun eumak sori
+           Naе moksoriga teojidorok oechyeo
+           Mеomchithal sigan ttawin eopseo
+           
+             Chorus   Felix   Hyunjin  
+           Hey
+           Come inside now
+           Hey
+           
+             Post  Chorus   Lee Know   Hyunjin  
+           Gwangyeja oe churipgeumji yeogin back door
+           Gwangyeja oe churipgeumji yeogin back door
+           Gwangyeja oe churipgeumji yeogin back door
+           Gwangyejaga doego sipdamyeon
+           
+           
+           
+             Verse 2   Changbin   Han  
+           Ayy   yeogikkajiga kkeuchinga boo   Right   right  
+           Meori sseul sigan ready to go   Go   right  
+           Gosaenghaesseo juin jalmot mannan mom   mom  
+           Hogang sikyeo julge ttarawarawara   back door
+           Sekom aninikka gwaenchanne
+           Jigeum deullyeooneun i sorineun pangpareu
+           Bamsae noraboja pillyohan geon more caffeine
+           Oryeomyeon odeunga amhoneun yeollyeora chamkkae
+           
+             Pre  Chorus   Seungmin   I  N  
+           Dalla boyeo modeun ge wanbyeokaejineun i sungan
+           Du nunapeseo pyeolchyeojineun fantasy
+           Nae moksoriga teojidorok oechyeo meomchit
+           Hal sigan ttawin eopseo
+           
+             Chorus   Han   Felix  
+           Hey
+           Come inside now
+           Hey
+           
+             Post  Chorus   Changbin   Hyunjin   Felix  
+           Gwangyeja oe churipgeumji yeogin back door
+           Gwangyeja oe churipgeumji yeogin back door
+           Gwangyeja oe churipgeumji yeogin back door
+           Gwangyejaga doego sipdamyeon   Knock   knock  
+           
+           
+             Bridge   Bang Chan   I  N   Seungmin  
+           Lights out
+           Yeah   sigani jinagalsurok deo hwaryeohaejineun i sungan
+           Yeah   we gon   do it right now   do it right now   baby
+           Ijebuteo jeongsin charyeo i segyereul nune dama
+           Simjang ullyeo   rum   pum   pum   pum
+           
+             Chorus   Felix   All  
+           Make   em say     Wow   wow   wow     yeah
+           Dadeul bulleowa wa wa   ayy
+           Norae bulleora ra ra   hey
+           Three   two   one
+           
+             Post  Chorus   Lee Know   Changbin   Han  
+           Gwangyeja oe churipgeumji yeogin back door
+           Gwangyeja oe churipgeumji yeogin back door
+           Gwangyeja oe churipgeumji yeogin back door
+           Gwangyejaga doego sipdamyeon   Knock   knock  
+           
+             Refrain   Bang Chan   I  N   Lee Know  
+           Jong ttaerigo michyeo nalttwieo
+           Oneuldo we do our thang
+           Jong ttaerigo michyeo nalttwieo
+           Oneul bamdo jijeo   ayy
+           Jong ttaerigo michyeo nalttwieo
+           Oneuldo we do our thang
+           Jong ttaerigo michyeo nalttwieo
+           
+           
+             Outro   Felix  
+           Hot   hot   Yeah     hot   hot   ah
+           Hot   hot   Oh     hot   hot
+             Hey   you wanna come in    "
+          >
+          </a-entity>
+
+          <a-entity
+            position="-0.75 -0.8 0.1"
+            rotation="0 0 0"
+            text="color: #290149; align: center; width: 2;height:5; font: aileronsemibold;
+             value:march twenty fifth"
+          >
+          </a-entity>
+        </a-plane>
+      </a-marker>
+    </a-scene>
+
+    <!-- Button Main Div -->
+    <div id="button-div"></div>
+  </body>
+</html>
